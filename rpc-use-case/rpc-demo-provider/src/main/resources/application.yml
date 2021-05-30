@@ -1,0 +1,9 @@
+server:
+  port: 8077
+
+seven:
+  rpc:
+    zookeeper:
+      host: 127.0.0.1
+      port: 2181
+      timeout: 60000 #zk会话过期时间,当临时节点创建后，如果断开连接，则10秒后，临时节点就会被删除

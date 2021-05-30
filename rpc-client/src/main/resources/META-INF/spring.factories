@@ -1,0 +1,2 @@
+# Rpc Client 自动装配bean配置类
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.appleyk.rpc.client.autoconfigure.RpcClientAutoConfigure

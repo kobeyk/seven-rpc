@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.appleyk.registry.zk.config.ZookeeperAutoConfig

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.appleyk</groupId>
+    <artifactId>seven-rpc</artifactId>
+    <packaging>pom</packaging>
+    <version>0.1.1-SNAPSHOT</version>
+    <description>手写RPC框架·父工程</description>
+    <modules>
+        <module>rpc-common</module>
+        <module>rpc-registry</module>
+        <module>rpc-client</module>
+        <module>rpc-server</module>
+        <module>rpc-core</module>
+        <module>rpc-use-case</module>
+    </modules>
+
+    <properties>
+
+        <java.version>1.8</java.version>
+        <jdk.version>1.8</jdk.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <skipTests>true</skipTests>
+
+        <!--定义版本-->
+        <springboot.version>2.4.0</springboot.version>
+        <spring.framework.version>5.3.1</spring.framework.version>
+        <jackson.version>2.11.0</jackson.version>
+        <netty.version>4.1.42.Final</netty.version>
+        <lombok.version>1.18.6</lombok.version>
+        <mysql8.version>8.0.22</mysql8.version>
+        <curator.version>5.1.0</curator.version>
+        <protostuff.version>1.1.6</protostuff.version>
+        <objenesis.version>3.2</objenesis.version>
+
+    </properties>
+
+
+    <!--第三方依赖包统一管理-->
+    <dependencyManagement>
+
+        <dependencies>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.framework.version}</version>
+            </dependency>
+
+            <!-- Spring Boot相关依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <!-- Spring Boot相关Web依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <!--SpringBoot自动装配-->
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-autoconfigure -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <!--配置类属性在配置文件中自动提示(需编译后才可以看到最新更改的效果)-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <!--参数验证-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-validation</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <!--springboot单元测试-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${springboot.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!--spring aop-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <!-- jackson，对象正反序列化，比起阿里fastJson,还是使用这个吧 -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+
+            <!--通过简单注解消除臃肿的重复性的代码工作，比如getter、setter、constructor等-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!--mysql驱动包-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql8.version}</version>
+            </dependency>
+
+            <!-- zookeeper 客户端 -->
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+
+            <!-- 高性能序列化工具：protostuff ，基于Google PBF，省去了手动编译*.proto文件的过程-->
+            <dependency>
+                <groupId>com.dyuproject.protostuff</groupId>
+                <artifactId>protostuff-core</artifactId>
+                <version>${protostuff.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dyuproject.protostuff</groupId>
+                <artifactId>protostuff-runtime</artifactId>
+                <version>${protostuff.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.objenesis/objenesis -->
+            <dependency>
+                <groupId>org.objenesis</groupId>
+                <artifactId>objenesis</artifactId>
+                <version>${objenesis.version}</version>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+</project>
