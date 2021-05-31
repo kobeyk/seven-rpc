@@ -38,11 +38,7 @@ public class RpcServiceInvocationHandler implements InvocationHandler{
     }
 
     public RpcServiceInvocationHandler(ApplicationContext context){
-        ServiceDiscovery discovery = context.getBean(ServiceDiscovery.class);
-        if (discovery==null){
-            throw new RuntimeException("serviceRegistry bean not found !");
-        }
-        this.serviceDiscovery = discovery;
+        this.serviceDiscovery = context.getBean(ServiceDiscovery.class);
     }
 
     /**
@@ -55,7 +51,7 @@ public class RpcServiceInvocationHandler implements InvocationHandler{
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         /*如果是当前类的实例自己调用自己的invoke方法的话，那就直接返回*/
-        if (method.getDeclaringClass().equals(this)){
+        if (method.getDeclaringClass().equals(this.getClass())){
             return method.invoke(proxy,args);
         }
 
